@@ -6,36 +6,24 @@ body{
     margin-right:20%;
 }
 
-/* .container{
-    width:auto;
-    height: auto;
-    border: 1px solid black;
-}  */
-
 .row{
     border: 1px solid #000;
-}
-
-.cell{
-    border: 1px solid #000;
-    /* height: 30px;
-    width: 30px;
-    float: left; */
-}
-
-.cell:hover{
-    background-color:#000;
 }
 
 table td{
     padding: 25px;
     border: 1px solid #000;
     box-sizing: border-box;
-    text-align: center;
+    white-space: nowrap;
+    
 }
 
 table{
-    border: 1px solid black;
+    border: 5px solid black;
     margin: auto;
     border-spacing: 0;
+    table-layout: fixed;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
 }
