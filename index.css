@@ -1,12 +1,23 @@
 body{
     text-align: center;
-    margin-top:0;
-    margin-bottom:0;
-    margin-left:20%; 
-    margin-right:20%;
 }
 
-.row{
+.grid{
+    width: 800px;
+    height: 650px;
+    border: 3px solid black;
+    display: grid;
+    position: absolute;
+    left: 22%;
+    top: 17%;
+    overflow: hidden;
+}
+
+.cell{
+    border: 1px solid black;
+}
+
+/* .row{
     border: 1px solid #000;
 }
 
@@ -26,4 +37,4 @@ table{
     white-space: nowrap;
     overflow: hidden;
     max-width: 100%;
-}
+} */

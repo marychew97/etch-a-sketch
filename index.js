@@ -1,29 +1,49 @@
 let container = document.querySelector('.container');
 document.getElementById('reset').addEventListener('click', reset);
 
-let oriNum = 16;
+let oriNum = 12;
 
 
 function createGrid(num){
-    var table = document.createElement('table');
-    var tableBody = document.createElement('tbody');
-    table.appendChild(tableBody);
-    for(var i=0; i<num; i++){
-        var tr = document.createElement('tr');
-        tableBody.appendChild(tr);
-        for(var j=0; j<num; j++){
-            var td = document.createElement('td');
-            td.classList.add('cell');
-            td.addEventListener('mouseover', function(e){
-                e.target.style.backgroundColor = getRandomColor();
-            });
-            td.style.width = `${480/num}px`;
-            td.style.height = `${480/num}px`;
-            tr.appendChild(td);
-        }
-        container.appendChild(table);
+    let grid = document.createElement('div');
+    grid.setAttribute("style", `grid-template: repeat(${num},1fr)/repeat(${num},1fr)`);
+    grid.classList.add('grid');
+    for (let i = 0; i < num ** 2; i++) {
+        let cell = document.createElement("div");
+        cell.classList.add("cell");
+        cell.addEventListener('mouseover', function(e){
+            e.target.style.backgroundColor = getRandomColor();
+        });
+        grid.appendChild(cell);
     }
+    container.appendChild(grid);
+
+    // Grid in a table
+    // var table = document.createElement('table');
+    // var tableBody = document.createElement('tbody');
+    // table.appendChild(tableBody);
+    // for(var i=0; i<num; i++){
+    //     var tr = document.createElement('tr');
+    //     tableBody.appendChild(tr);
+    //     for(var j=0; j<num; j++){
+    //         var td = document.createElement('td');
+    //         td.classList.add('cell');
+    //         td.addEventListener('mouseover', function(e){
+    //             e.target.style.backgroundColor = getRandomColor();
+    //         });
+    //         td.style.width = `${480/num}px`;
+    //         td.style.height = `${480/num}px`;
+    //         tr.appendChild(td);
+    //     }
+    //     container.appendChild(table);
+    // }
 }
+
+// function checkNum(num){
+//     if(num > 1 || num < 64){
+//         createGrid(num);
+//     }
+// }
 
 function getRandomColor(){
     let letters = '0123456789ABCDEF';
@@ -35,17 +55,18 @@ function getRandomColor(){
 }
 
 function clearGrid(){
-    var table = document.querySelector('table');
-    container.removeChild(table);
+    var grid = document.querySelector('.grid');
+    container.removeChild(grid);
 }
 
 function reset(){
-    var td = document.querySelectorAll('td');
-    td.forEach(data => {
-        data.style.backgroundColor = '#fff';
+    var cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => {
+        cell.style.backgroundColor = '#fff';
     });
 
     let num = prompt("Enter any number for grid dimensions.");
+    //checkNum(num);
     clearGrid();
     createGrid(num);
 }
