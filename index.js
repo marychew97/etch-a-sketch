@@ -44,7 +44,10 @@ function createGrid(num){
 }
 
 function checkNum(num){
-    if(num > 1 || num < 64){
+    if(isNaN(num) || num > 64 || num < 1){
+        num = prompt("Enter any number less than 64 and greater than 1 for grid dimensions.");
+        createGrid(num);
+    } else{
         createGrid(num);
     }
 }
