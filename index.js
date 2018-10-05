@@ -1,7 +1,11 @@
+let main = document.querySelector('#main');
 let container = document.querySelector('.container');
-document.getElementById('reset').addEventListener('click', reset);
 
-let oriNum = 12;
+let body = document.querySelector('body');
+document.getElementById('reset').addEventListener('click', reset);
+document.getElementById('change').addEventListener('click', clearGrid);
+
+let oriNum = 16;
 
 
 function createGrid(num){
@@ -39,11 +43,11 @@ function createGrid(num){
     // }
 }
 
-// function checkNum(num){
-//     if(num > 1 || num < 64){
-//         createGrid(num);
-//     }
-// }
+function checkNum(num){
+    if(num > 1 || num < 64){
+        createGrid(num);
+    }
+}
 
 function getRandomColor(){
     let letters = '0123456789ABCDEF';
@@ -55,6 +59,9 @@ function getRandomColor(){
 }
 
 function clearGrid(){
+    let num = prompt("Enter any number for grid dimensions.");
+    checkNum(num);
+
     var grid = document.querySelector('.grid');
     container.removeChild(grid);
 }
@@ -64,11 +71,6 @@ function reset(){
     cells.forEach(cell => {
         cell.style.backgroundColor = '#fff';
     });
-
-    let num = prompt("Enter any number for grid dimensions.");
-    //checkNum(num);
-    clearGrid();
-    createGrid(num);
 }
 
 createGrid(oriNum);

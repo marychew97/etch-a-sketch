@@ -1,20 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
 body{
     text-align: center;
+    font-family: 'Pacifico', cursive;
+    margin-left: 20%;
+    margin-right: 20%;
+
+    animation-name: changeBackground;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+}
+
+@keyframes changeBackground{
+    0%{
+        background-color: #EAE2B7;
+    }
+    25%{
+        background-color: #FCBF49;
+    }
+    50%{
+        background-color: #F77F00;
+        color:#fff;
+    }
+    75%{
+        background-color: #D62828;
+        color:#fff;
+    }
+    100%{
+        background-color: #003049;
+        color:#fff;
+    }
 }
 
 .grid{
-    width: 800px;
-    height: 650px;
+    width: 480px;
+    height: 480px;
     border: 3px solid black;
     display: grid;
-    position: absolute;
-    left: 22%;
-    top: 17%;
-    overflow: hidden;
+    margin-left: 20%;
+    margin-right: 20%; 
+    background-color: #fff;
 }
 
 .cell{
     border: 1px solid black;
+}
+
+#main{
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+button{
+    font-family: 'Pacifico', cursive;
 }
 
 /* .row{
